@@ -13,9 +13,9 @@
 >
 - Ayeh Mozafari
 
->Email: ****
+>Email: ayehmozaffari1402@gmail.com
 >
->github: ****
+>github: Ayehmozaffari
 >
 - Alireza Ahmadi
 
