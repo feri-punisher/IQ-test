@@ -19,9 +19,9 @@
 >
 - Alireza Ahmadi
 
->Email: ****
+>Email: **ahmadialireza316@gmail.com**
 >
->github: ****
+>github: **alireza64ahmadi**
 >
 ## Page link
 - **https://feri-punisher.github.io/IQ-test/**
