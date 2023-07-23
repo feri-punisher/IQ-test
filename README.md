@@ -24,7 +24,7 @@
 >github: ****
 >
 ## Page link
--
+- **(Just do it)[https://feri-punisher.github.io/IQ-test/]**
 ## Description
 
 `It's IQ test to test your IQ:)`
