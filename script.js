@@ -24,7 +24,16 @@ function loadForm() {
     </div>
             `
     body.insertAdjacentHTML('afterbegin', formLogin)
+    addButtonDL()
 }
+
+function addButtonDL() {
+    let button = document.createElement('button')
+    button.classList.add('buttonMood')
+    button.innerText = 'MOOD'
+    body.appendChild(button)
+}
+
 // select form and Btn in form
 let form = document.querySelector('#form')
 let btnForm = document.querySelector('#btnForm')
@@ -49,6 +58,7 @@ btnForm.addEventListener('click', () => {
         localStorage.setItem('Name', Name)
     }
 })
+
 // template foe add image to container
 // یک تمپلیت برای اضافه کردن عکس ها به صفحه
 // this template is for questions 1 to 12
@@ -56,7 +66,7 @@ btnForm.addEventListener('click', () => {
 function template(indexIMG) {
     return `
     <div id="top">
-        <img src="Images/${indexIMG}/test${indexIMG}.png" alt="">
+        <img class="image-test" src="Images/${indexIMG}/test${indexIMG}.png" alt="">
     </div>
     <div id="buttom">
         <img class="image image1" src="Images/${indexIMG}/${indexIMG}-1.png" alt="">
@@ -75,7 +85,7 @@ function template(indexIMG) {
 function template2(indexIMG) {
     return `
     <div id="top">
-        <img src="Images/${indexIMG}/test${indexIMG}.png" alt="">
+        <img class="image-test" src="Images/${indexIMG}/test${indexIMG}.png" alt="">
     </div>
     <div id="buttom">
         <img class="image image1" src="Images/${indexIMG}/${indexIMG}-1.png" alt="">
@@ -104,9 +114,9 @@ function addNewQuestionAndAnswer() {
     }
     // تا 12 سوال اول تمپلیت اول به نمایش گذاشته میشه
     // first template for question 1 to 12 
-    else if (indexIMG <= 30) {       
+    else if (indexIMG <= 30) {
         container.insertAdjacentHTML('afterbegin', template2(indexIMG))
-    } 
+    }
     //  برابر 31 میشه و باید پاسخ دیگه به نمایش گذاشته بشه indexIMG بار 30ام که کلیک شد 
     else if (indexIMG == 31) {
         container.insertAdjacentHTML('afterbegin', answer())
@@ -150,12 +160,28 @@ function answer() {
     // get user name from local storage
     // گرفتن اسم کاربر از حافظه
     let nameInLs = localStorage.getItem('Name')
-    // محاسبه امتیاز نسبت به 100
-    score = (score*3.325).toFixed()
+    // محاسبه امتیاز نسبت به %100
+    score = (score * 3.325).toFixed()
+    let aboutScore = ''
+    if (score == 100) {
+        aboutScore = 'Hello Einstein'
+    }
+    if (score <= 99) {
+        aboutScore = 'Good Job'
+    }
+    if (score <= 75) {
+        aboutScore = 'You Can Try It Again'
+    }
+    if (score <= 50) {
+        aboutScore = 'Please Try More'
+    }
+    if (score <= 25) {
+        aboutScore = 'Your IQ Is Less Than A Kid'
+    }
     return `
         <div class="container-score">
            <p>${nameInLs} answered ${score}% of the questions correctly</p>
-           <p></p>
+           <p>${aboutScore}</p>
         </div>
     `
 }
