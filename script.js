@@ -103,6 +103,7 @@ function userChose(e) {
 
 function answer() {
     let nameInLs = localStorage.getItem('Name')
+    score = (score*3.325).toFixed()
     return `
         <div class="container-score">
            <p>${nameInLs} answered ${score}% of the questions correctly</p>
