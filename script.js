@@ -9,6 +9,7 @@ let container = document.createElement('div')
 container.classList = 'container'
 // وقتی صفحه لود میشه فرم ما ظاهر میشه
 body.addEventListener('load', loadForm())
+
 function loadForm() {
     let formLogin = `
     <div id="form" >
@@ -23,15 +24,32 @@ function loadForm() {
         <button id="btnForm">OK</button>
     </div>
             `
-    body.insertAdjacentHTML('afterbegin', formLogin)
-    addButtonDL()
+            // for page mood
+            body.insertAdjacentHTML('afterbegin', formLogin)
+            addButtonDL()
 }
 
+// add btn
+// اظافه کردن دکمه مود به صفحه
 function addButtonDL() {
     let button = document.createElement('button')
     button.classList.add('buttonMood')
     button.innerText = 'MOOD'
     body.appendChild(button)
+    // action function when click
+    // وقتی کلیک شد روی دکمه تابع را اجرا میکند
+    button.addEventListener('click', lightPage)
+}
+
+function lightPage() {
+    // با کلاس هاشون بهشوا شرط دادیم
+    if (body.classList.contains('body')) {
+        body.classList.remove('body')
+        body.classList.add('bodyMood')
+    }else{
+        body.classList.remove('bodyMood')
+        body.classList.add('body')
+    }   
 }
 
 // select form and Btn in form
@@ -100,7 +118,7 @@ function template2(indexIMG) {
     `
 }
 
-let indexIMG = 0      // هربار که به این متغییر اظافه میشه عکس بعدی را در همان فایل نمایش میده
+let indexIMG = 0 // هربار که به این متغییر اظافه میشه عکس بعدی را در همان فایل نمایش میده
 function addNewQuestionAndAnswer() {
     // اگر دیو سوالات خالی نبود خالی میشه
     if (container != -1) {
