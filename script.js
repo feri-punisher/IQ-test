@@ -34,7 +34,7 @@ function loadForm() {
 function addButtonDL() {
     let button = document.createElement('button')
     button.classList.add('buttonMood')
-    button.innerText = 'MOOD'
+    button.innerText = 'MODE'
     body.appendChild(button)
     // action function when click
     // وقتی کلیک شد روی دکمه تابع را اجرا میکند
